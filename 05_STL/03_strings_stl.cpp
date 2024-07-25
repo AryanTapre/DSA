@@ -7,6 +7,7 @@ int main() {
     string data = "Aryan Tapre";
     cout<<"fist char:"<<data.front()<<endl;
     cout<<"last char"<<data.back()<<endl;
+    
 
     data.clear();
     if(data.empty()) {

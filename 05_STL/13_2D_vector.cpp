@@ -24,6 +24,7 @@ int main() {
         cout<<endl;
     }
 
+    
 
     // creating 3*3 vector
     cout<<endl<<endl;
@@ -37,7 +38,5 @@ int main() {
         cout<<endl;
     }
     
-
-
 return 0;
 }

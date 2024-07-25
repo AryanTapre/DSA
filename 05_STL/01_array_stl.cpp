@@ -8,12 +8,10 @@ int main() {
     
     cout<<"size:"<<arr.size();
     cout<<endl<<"max_size():"<<arr.max_size()<<endl;
+    int mini = INT_MAX;
 
-   cout<<"Starting element address:"<<arr.begin()<<endl;
-   cout<<"Last element address:"<<arr.end()<<endl;
-
-   cout<<"first element data:"<<arr.front()<<endl;
-   cout<<"last element data:"<<arr.back()<<endl;
+    cout<<"first element data:"<<arr.front()<<endl;
+    cout<<"last element data:"<<arr.back()<<endl;
 
    if(arr.empty()) {
     cout<<"array is empty"<<endl;
@@ -22,7 +20,7 @@ int main() {
    }
 
    cout<<"element at index 2:"<<arr.at(2)<<endl;
-  
+    
 
    cout<<"swapping arr[0] and arr[1]"<<endl;
    swap(arr.at(0),arr.at(1));
