@@ -1,5 +1,5 @@
 #include<iostream>
-   using namespace std;
+using namespace std;
 
 int lastOccurrence(string &str, int i, char &key) {
     if(i < 0) return -1;
