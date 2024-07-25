@@ -1,1 +1,1 @@
-**Everything Data Structures + Algorithms**|
+**Everything Data Structures + Algorithms**

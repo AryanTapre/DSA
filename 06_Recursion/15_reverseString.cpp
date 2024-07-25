@@ -9,10 +9,13 @@ void reverse(string &str, int start, int end) {
 }
 
 
-
 int main() {
-    string str = "abc";
-    reverse(str,0,str.size()-1);
+    string str = "abc"; 
+
+    if(str.at(3)) {
+        cout<<"not there..!";
+    }
+
     cout<<str<<endl;
 return 0;
 }
