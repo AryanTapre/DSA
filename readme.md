@@ -1,1 +1,1 @@
-**Applying DSA concepts**|
+**Everything Data Structures + Algorithms**|
