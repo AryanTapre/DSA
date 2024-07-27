@@ -31,6 +31,6 @@ int main() {
     string s = "daabcbaabcbc";
     string part = "abc";
 
-    cout<<removeOccurrences(s,part);
+    cout<<removeOccurrences(s,part)
 return 0;   
 }
