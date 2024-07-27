@@ -13,11 +13,12 @@ bool isProfit(int buyStockPrice, int sellStockPrice) {
 int solveRE(vector<int> &prices, int i, int &profit, int &mini_buy_stock) {
         if(i >= prices.size()) return profit;
 
-        if(!isProfit(mini_buy_stock, prices[i])) {
-            mini_buy_stock = prices[i];
-        } else {
+        if(isProfit(mini_buy_stock, prices[i])) {
             int profit_tmp = prices[i] - mini_buy_stock;
-            if(profit_tmp > profit) profit = profit_tmp; 
+            if(profit_tmp > profit) profit = profit_tmp;
+            
+        } else {
+            mini_buy_stock = prices[i]; 
         }
 
         return solveRE(prices,i+1,profit,mini_buy_stock);
