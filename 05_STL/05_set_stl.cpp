@@ -10,7 +10,7 @@ int main() {
     
 
     //count
-    cout<<"is 9 present in set val => "<<val.count(9)<<endl;
+    cout<<"is 9 present in set val => "<<val.count(19)<<endl;
 
     // insert
     val.insert(10);
