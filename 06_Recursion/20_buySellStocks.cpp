@@ -22,7 +22,7 @@ int solveRE(vector<int> &prices, int i, int &profit, int &mini_buy_stock) {
         }
 
         return solveRE(prices,i+1,profit,mini_buy_stock);
-    }
+}
 
 int maxProfit(vector<int> &prices) {
     int profit = 0;
