@@ -1,5 +1,5 @@
 #include<vector>
-#include<iostream>
+#incwlude<iostream>
 using namespace std;
 
 bool isSafe(int x, int y, int row, int col, vector<vector<int> > &maze, vector<vector<bool> > &visited) {
