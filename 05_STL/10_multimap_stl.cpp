@@ -29,7 +29,7 @@ int main() {
 
     // goal is to remove all duplicates elements from a multi-map
     multimap<int,int> mp = {{1,1},{2,3},{10,10},{2,3},{8,8},{1,1}};
-    multimap<int,int> dup;
+    multimap<int,int> dup; 
 
     for(auto i : mp) {
         auto res = dup.find(i.first); 

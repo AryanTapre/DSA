@@ -1,7 +1,7 @@
 #include<unordered_map>
 #include<iostream>
 using namespace std;
- 
+
 int main() {
 
 //TODO: Order is not maintained, allowing duplicate keys!.

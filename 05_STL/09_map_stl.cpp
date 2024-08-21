@@ -2,9 +2,9 @@
 #include<utility>
 #include<iostream>
 using namespace std;
- 
+
 int main() {
- 
+
     map<int,string> ascending_order_map; // ascending order pair!.
 
     //Insert
@@ -33,7 +33,6 @@ int main() {
     }
 
     //erase
-   
     auto res = ascending_order_map.erase(1);
     cout<<"After erase =>"<<endl;
     for(auto i : ascending_order_map) {
