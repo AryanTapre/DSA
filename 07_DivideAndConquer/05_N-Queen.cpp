@@ -1,7 +1,7 @@
 #include<iostream>
 #include<unordered_map>
 #include<vector>
-using namespace std;
+using namespace std;    
 
 
 unordered_map<int, bool> checkRow;
