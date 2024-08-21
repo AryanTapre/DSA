@@ -2,7 +2,7 @@
 #include<string.h>
 #include<iostream>
 using namespace std;
- 
+
 int main() {
     string data = "Aryan Tapre";
     cout<<"fist char:"<<data.front()<<endl;

@@ -1,9 +1,9 @@
 #include<unordered_set>
 #include<iostream>
 using namespace std;
- 
+
 int main() {
- 
+
     unordered_multiset<int> ml;
 
     ml.insert(10);
@@ -13,7 +13,7 @@ int main() {
     ml.insert(50);
     ml.insert(10);
     ml.insert(50);
-
+    
 
     for(auto i=ml.begin(); i != ml.end(); i++) {
         cout<<*i<<endl;

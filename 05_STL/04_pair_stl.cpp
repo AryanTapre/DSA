@@ -2,9 +2,9 @@
 #include<utility>
 #include<iostream>
 using namespace std;
- 
+
 int main() {
- 
+
     pair<int,string> name(1,"aryan");
     cout<<name.first<<" "<<name.second<<endl;
 

@@ -2,7 +2,7 @@
 #include<set>
 #include<iostream>
 using namespace std;
- 
+
 int main() {
     
     set<int,greater<int> > val2 = {20,50}; // descending order sorted...

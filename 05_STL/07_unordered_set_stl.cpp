@@ -1,9 +1,9 @@
 #include<unordered_set>
 #include<iostream>
 using namespace std;
- 
+
 int main() {
- 
+
     unordered_set<int> s;
     
     s = {50,89,1,20,0,13,4,16};
