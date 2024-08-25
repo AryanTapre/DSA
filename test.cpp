@@ -4,55 +4,40 @@
 using namespace std;
 
 
-void solve(string &digits, int index,string output, vector<string> &ans,  unordered_map<int,string> &map) {
-        if(digits.empty()) {
-            return;
+void merge(vector<int> &arr, int start, int end, int mid) {
+    int i = start;
+    int j = mid + 1;
+
+    while(i<=mid && j<=end) {
+        if(arr[i] < arr[j]) {
+            i++;
         }
-
-        if(index >= digits.size()) {
-            ans.push_back(output);
-            return;
-        }
-
-        int digit = digits[index] - '0';
-        string value = map[digit];
-
-
-        for(int i=0; i<value.size(); i++) {
-            char ch = value[i];
-            output.push_back(ch);
-            solve(digits,index+1,output,ans,map);
-            output.pop_back();
-        }
-
+        swap(arr[i],arr[j]);
+        i++;
+        j++;
     }
+}
 
-    vector<string> letterCombinations(string digits) {
-        string output;
-        vector<string> ans;
-        int index = 0;
+void mergeSort(vector<int> &arr, int start, int end) {
+    if(start >= end) return;
 
-        unordered_map<int,string> map;
-        map.insert(make_pair(2,"abc"));
-        map.insert(make_pair(3,"def"));
-        map.insert(make_pair(4,"ghi"));  
-        map.insert(make_pair(5,"jkl"));
-        map.insert(make_pair(6,"mno"));
-        map.insert(make_pair(7,"pqrs"));
-        map.insert(make_pair(8,"tuv"));
-        map.insert(make_pair(9,"wxyz"));  
+    int mid = start + (end-start) / 2;
 
+    //left
+    mergeSort(arr,start,mid);
+    // right;
+    mergeSort(arr,mid+1,end);
 
-        solve(digits,index,output, ans,map);
-        return ans;
-    }
+    merge(arr,start,end,mid);
+}
 
 int main() {
 
-    vector<string> ans = letterCombinations("");
-    for(auto i : ans) {
-        cout<<i<<endl;
-    }
+vector<int> arr = {5,8,10,0,45,8,9,6};
+mergeSort(arr,0,arr.size()-1);
+
+for(auto i:arr) cout<<i<<" ";
+cout<<endl;
 
 return 0;
 }
