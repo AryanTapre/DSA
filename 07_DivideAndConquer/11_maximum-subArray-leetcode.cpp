@@ -12,11 +12,11 @@ int maxSubArrayHelper(vector<int> &nums, int start, int end) {
 
     int mid = start + ((end - start) >> 2);
 
-    int maxLeftSum =  maxSubArrayHelper(nums, start, mid);
+    int maxLeftSum =  maxSubArrayHelper(nums, start, mid); // FIXME: O(LogN)
     int maxRightSum = maxSubArrayHelper(nums, mid+1, end);
 
     // calculating left border sum
-    for(int i=mid; i>=start; i--) {
+    for(int i=mid; i>=start; i--) { // O(N)
         leftBorderSum += nums.at(i);
         maxLeftBorderSum = max(leftBorderSum, maxLeftBorderSum);
     }
@@ -32,7 +32,7 @@ int maxSubArrayHelper(vector<int> &nums, int start, int end) {
     return max(maxLeftSum, max(maxRightSum, crossBorderSum));
 }
 
-int maxSubArray(vector<int> &nums) {
+int maxSubArray(vector<int> &nums) { // O(N Log N)
     int start = 0, end = nums.size() - 1;
 
     return maxSubArrayHelper(nums,start, end);
@@ -40,7 +40,7 @@ int maxSubArray(vector<int> &nums) {
 
 int main() {
     vector<int> nums = {-2,1,-3,4,-1,2,1,-5,4};
-    
+
     cout<<"max sub-array sum is : "<<maxSubArray(nums)<<endl; 
 return 0;
 }
