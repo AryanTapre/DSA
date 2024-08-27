@@ -44,6 +44,7 @@ int merge(vector<int> &arr, int start, int end, int mid) {
         maini++;
     }
 
+     // right is still remaining and left get finished..
     while(j<right.size()) {
         arr[maini] = right[j];
         j++;
