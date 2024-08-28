@@ -1,43 +1,48 @@
-#include<iostream>
-#include<unordered_map>
 #include<vector>
+#include<unordered_map>
+#include<iostream>
 using namespace std;
 
-
-void merge(vector<int> &arr, int start, int end, int mid) {
-    int i = start;
-    int j = mid + 1;
-
-    while(i<=mid && j<=end) {
-        if(arr[i] < arr[j]) {
-            i++;
+void solve(vector<int> &a, int target, vector<int> output,vector<vector<int>> &ans, int currentSum, unordered_map<int,int> &map) {
+    if(currentSum == target) {
+        bool flag = false;
+        for(int i=0; i<output.size(); i++) {
+            if(!map[output[i]]) {
+                map[output[i]] = 1;
+                flag = true;
+            }
         }
-        swap(arr[i],arr[j]);
-        i++;
-        j++;
+
+        if(flag == true) ans.push_back(output);
+        return;
+    }
+
+    if(currentSum > target) return;
+
+    for(int i=0; i<a.size(); i++) {
+        output.push_back(a[i]);
+        solve(a, target,output,ans, currentSum + a[i],map);
+        output.pop_back();
     }
 }
 
-void mergeSort(vector<int> &arr, int start, int end) {
-    if(start >= end) return;
-
-    int mid = start + (end-start) / 2;
-
-    //left
-    mergeSort(arr,start,mid);
-    // right;
-    mergeSort(arr,mid+1,end);
-
-    merge(arr,start,end,mid);
-}
-
 int main() {
+    unordered_map<int,int> map;
+    vector<int> a = {2};
+    int target = 1;
+    vector<int> output;
+    vector<vector<int >> ans;
+    int currentSum = 0;
 
-vector<int> arr = {5,8,10,0,45,8,9,6};
-mergeSort(arr,0,arr.size()-1);
+    solve(a, target, output,ans, currentSum,map);
 
-for(auto i:arr) cout<<i<<" ";
-cout<<endl;
+    for(auto i : ans) {
+        for(auto j : i) {
+            cout<<j<<" ";
+        }
+        cout<<endl;
+    }
+    cout<<endl;
 
 return 0;
 }
