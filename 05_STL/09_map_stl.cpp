@@ -7,6 +7,7 @@ int main() {
 
     map<int,string> ascending_order_map; // ascending order pair!.
 
+
     //Insert
     ascending_order_map.insert(make_pair(1,"One"));
     ascending_order_map.insert(make_pair(2,"Two"));
@@ -15,7 +16,7 @@ int main() {
     ascending_order_map.insert(make_pair(3,"Three"));
     ascending_order_map.insert(make_pair(5,"six"));
 
-
+    
     for(auto i : ascending_order_map) {
         cout<<i.first<<"=>"<<i.second<<endl;
     }
