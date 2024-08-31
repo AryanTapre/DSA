@@ -7,7 +7,7 @@ void quickSort(vector<int> &arr, int start, int end) {
 
     int pivot = end;
     int i = start;
-    int j = start;
+    int j = start; // commented
 
     while(j < pivot) {
         if(arr[j] < arr[pivot]) {
