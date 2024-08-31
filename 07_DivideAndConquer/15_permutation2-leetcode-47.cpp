@@ -17,7 +17,7 @@ void permuteUniqueHelper(vector<int> &nums, vector<vector<int>> &ans, int index)
         if(map.find(nums.at(i)) != map.end()) {
             continue;
         }
-       map[nums[i]] = true;
+        map[nums[i]] = true;
 
         swap(nums.at(index), nums.at(i));
         permuteUniqueHelper(nums,ans, i + 1);
