@@ -5,6 +5,14 @@
 #include<iostream>
 using namespace std;
 
+
+void printVectorData(vector<int> &v) {
+    for(auto x: v) {
+        cout<<x<<" ";
+    }
+    cout<<endl;
+}
+
 bool canDistributeHelper(vector<int> &counts, int customer, vector<int> &quantity) {
     if(customer >= quantity.size()) return true;
 
