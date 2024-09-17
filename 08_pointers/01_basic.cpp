@@ -31,6 +31,9 @@ class Person {
 
 int main() {
 
+    // int* x = new int[56];
+    // delete [] x;
+
     Person* p1 = new Person("aryan",22);
     Person* p2(p1);
     delete p1;
