@@ -1,12 +1,40 @@
 #include<iostream>
 using namespace std;
 
-int my_fun() {
-    cout<<"hello"<<endl;
-    return 0;
-}
+class abc {
+    public:
+        int *x;
 
-void _start() {
-    int x = my_fun();
-    exit(x);
+        abc(int x) {
+            this->x = new int(x);
+        }
+
+        abc(abc &obj) {
+            cout<<"dppe"<<endl;
+            this->x = new int(*obj.x);
+        }
+
+        void print() {
+            cout<<"x value:"<<*x<<endl;
+            cout<<"x pointing to:"<<x<<endl;
+            cout<<"x address:"<<&x<<endl;
+        }
+
+        ~abc() {
+            delete this->x;
+        }
+};
+
+int main() {
+
+   abc a(10);
+   abc b = a;
+
+   a.print();
+   b.print();
+
+    
+    
+
+return 0;
 }

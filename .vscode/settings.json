@@ -1,10 +1,3 @@
 {
-  "files.associations": {
-    ".env*": "dotenv",
-    "array": "cpp",
-    "iostream": "cpp",
-    "ostream": "cpp",
-    "algorithm": "cpp"
-  },
   "C_Cpp.errorSquiggles": "disabled"
 }
