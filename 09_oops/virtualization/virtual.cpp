@@ -1,3 +1,24 @@
+/*
+1.  Pre-Processing:
+2.  Compilation:
+        Parsing:Tokens,
+        Syntax analysis.
+        Semantics analysis,
+        Code Generation
+
+3.  Assembly
+4.  Linking
+5.  Execution
+        
+
+        
+
+*/
+
+
+
+
+
 #include<iostream>
 using namespace std;
 
@@ -6,7 +27,7 @@ class Base {
         Base() {
             cout<<"base ctor \n";
         }
-        
+
         virtual ~Base() {
             cout<<"base dtor \n";
         }
