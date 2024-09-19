@@ -1,44 +1,35 @@
 #include<iostream>
 using namespace std;
 
-class base {
-    int x;
+class Base {
     public:
-        base(int _x) : x(_x) {
-            cout<<"base ctor"<<endl;
+        Base() {
+            cout<<"base ctor \n";
         }
-
-        void getX() {
-            cout<<this->x<<endl;
-        }
-
-        ~base() {
-            cout<<"base dtor"<<endl;
+        
+        virtual ~Base() {
+            cout<<"base dtor \n";
         }
 };
 
-
-class derive {`
-    int y, *data;
+class Derive: public Base {
+    int *a;
     public:
-        derive(int _y) : y(_y) {
-            cout<<"derive ctor"<<endl;
+        Derive() {
+            a = new int[1000];
+            cout<<"derive ctor \n";
         }
 
-        void getY() {
-            cout<<this->y<<endl;
-        }
-
-        ~derive() {
-            cout<<"derive dtor"<<endl;
+        ~Derive() {
+            delete[] a;
+            cout<<"derive dtor \n";
         }
 };
 
 int main() {
 
-    base *b = new derive(10);
-
-
+    Base* base = new Derive();
+    delete base;
 
 return 0;
 }
