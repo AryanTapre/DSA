@@ -1,40 +1,48 @@
-#include<iostream>
+#include <iostream>
+#include <sqlite3.h>
+
 using namespace std;
 
-class abc {
-    public:
-        int *x;
+// Singleton class for managing the database connection
+class DatabaseConnection {
+public:
+    static DatabaseConnection& getInstance() {
+        static DatabaseConnection instance;
+        return instance;
+    }
 
-        abc(int x) {
-            this->x = new int(x);
-        }
+    sqlite3* getConnection() {
+        return db;
+    }
 
-        abc(abc &obj) {
-            cout<<"dppe"<<endl;
-            this->x = new int(*obj.x);
+private:
+    DatabaseConnection() {
+        int rc = sqlite3_open("mydatabase.db", &db);
+        if (rc != SQLITE_OK) {
+            cerr << "Cannot open database: " << sqlite3_errmsg(db) << endl;
         }
+    }
 
-        void print() {
-            cout<<"x value:"<<*x<<endl;
-            cout<<"x pointing to:"<<x<<endl;
-            cout<<"x address:"<<&x<<endl;
-        }
+    ~DatabaseConnection() {
+        sqlite3_close(db);
+    }
 
-        ~abc() {
-            delete this->x;
-        }
+    sqlite3* db;
 };
 
 int main() {
+    // Get the singleton instance of the database connection
+    DatabaseConnection& dbConnection = DatabaseConnection::getInstance();
 
-   abc a(10);
-   abc b = a;
+    // Use the connection to execute SQL statements
+    sqlite3* db = dbConnection.getConnection();
+    const char* sql = "CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, name TEXT, email TEXT)";
+    int rc = sqlite3_exec(db, sql, NULL, NULL, NULL);
+    if (rc != SQLITE_OK) {
+        cerr << "SQL error: " << sqlite3_errmsg(db) << endl;
+    }
 
-   a.print();
-   b.print();
+    // ... other database operations ...
 
-    
-    
-
-return 0;
+    return 0;
 }

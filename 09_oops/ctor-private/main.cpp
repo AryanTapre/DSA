@@ -2,6 +2,7 @@
 using namespace std;
 
 class Box {
+    
     private:
         int width;
         Box(int _width) : width(_width) {}
