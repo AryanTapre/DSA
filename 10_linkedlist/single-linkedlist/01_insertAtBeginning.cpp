@@ -53,5 +53,9 @@ int main() {
 
     printList(HEAD);
 
+    // cout<<endl<<HEAD->data<<endl;
+    // cout<<TAIL->data<<endl;
+
+
 return 0;
 }
