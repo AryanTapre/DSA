@@ -15,8 +15,23 @@ class Node {
         this->data = data;
         this->next = nullptr;
     }
+
+    
 };
 
+void print(Node* &HEAD) {
+    if(HEAD == nullptr) {
+        cout<<"List is empty"<<endl;
+        return;
+    }
+
+    Node* temp = HEAD;
+    while(temp != nullptr) {
+        cout<<temp->data<<" ";
+        temp = temp->next;
+    }
+    cout<<endl;
+}
 
 
 void insertAtBeginning(Node* &HEAD, Node* &TAIL, int data) {
@@ -80,34 +95,37 @@ void insertAtPosition(Node* &HEAD, Node* &TAIL, int data, int position) {
 
 }
 
-void print(Node* &HEAD) {
-    if (HEAD == nullptr) {
-        cout<<"List is empty"<<endl;
+
+
+void deleteAtEnd(Node* &HEAD, Node* &TAIL) {
+    if(TAIL == nullptr) {
+        cout<<"List is empty";
         return;
     }
-    Node* temp = HEAD;
-    while(temp != nullptr) {
-        cout<<temp->data<<" ";
-        temp = temp->next;
+
+    Node* T = HEAD;
+    while(T->next->next != nullptr) {
+        T = T->next; 
     }
-    cout<<endl;
+
+    Node* oldTail = T->next;
+    TAIL = T;
+    TAIL->next = nullptr;
+    delete oldTail;
 }
 
 int main() {
 
-Node* HEAD = nullptr;
-Node* TAIL = nullptr;
+    Node* head = nullptr;
+    Node* tail = nullptr;
 
-insertAtPosition(HEAD, TAIL, 10, 0);
-insertAtPosition(HEAD, TAIL, 11, 1);
-insertAtPosition(HEAD, TAIL, 0, 1);
-insertAtPosition(HEAD, TAIL, 12, 0);
-insertAtPosition(HEAD, TAIL, 15, 5);
+    insertAtEnd(head, tail, 11);
+    insertAtEnd(head, tail, 12);
+    print(head);
 
-print(HEAD);
+    deleteAtEnd(head, tail);
+    print(head);
 
-cout<<endl<<"head ->"<<HEAD->data<<endl;
-cout<<"tail ->"<<TAIL->data<<endl;
-
+    
 return 0;
 }
