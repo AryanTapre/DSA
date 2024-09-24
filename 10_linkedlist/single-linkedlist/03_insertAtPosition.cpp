@@ -94,14 +94,15 @@ int main() {
 Node* HEAD = nullptr;
 Node* TAIL = nullptr;
 
-insertAtPosition(HEAD, TAIL, 10, 9);
-insertAtPosition(HEAD, TAIL, 100,1);
-insertAtPosition(HEAD, TAIL, 101,1);
-insertAtPosition(HEAD, TAIL, 120,0);
-insertAtPosition(HEAD, TAIL, 180,0);
-// insertAtPosition(HEAD, TAIL, 90,3);
-
+insertAtPosition(HEAD, TAIL, 10, 0);
+insertAtPosition(HEAD, TAIL, 11, 1);
+insertAtPosition(HEAD, TAIL, 0, 1);
+insertAtPosition(HEAD, TAIL, 12, 0);
+insertAtPosition(HEAD, TAIL, 15, 5);
 print(HEAD);
+
+cout<<endl<<"head ->"<<HEAD->data<<endl;
+cout<<"tail ->"<<TAIL->data<<endl;
 
 return 0;
 }
