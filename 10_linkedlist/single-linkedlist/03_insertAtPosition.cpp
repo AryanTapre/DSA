@@ -99,6 +99,7 @@ insertAtPosition(HEAD, TAIL, 11, 1);
 insertAtPosition(HEAD, TAIL, 0, 1);
 insertAtPosition(HEAD, TAIL, 12, 0);
 insertAtPosition(HEAD, TAIL, 15, 5);
+
 print(HEAD);
 
 cout<<endl<<"head ->"<<HEAD->data<<endl;
