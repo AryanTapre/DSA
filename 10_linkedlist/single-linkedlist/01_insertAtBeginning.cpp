@@ -18,6 +18,10 @@ class Node {
 };
 
 void printList(Node* HEAD) {
+    if (HEAD == nullptr) {
+        cout<<"List is empty"<<endl;
+        return;
+    }
     Node* temp = HEAD;
 
     while(temp != NULL) {
