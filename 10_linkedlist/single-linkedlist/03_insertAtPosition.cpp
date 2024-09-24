@@ -60,7 +60,7 @@ void insertAtPosition(Node* &HEAD, Node* &TAIL, int data, int position) {
     if(position == 0) {
         insertAtBeginning(HEAD, TAIL, data);
         return;
-    } else if (position >= len) {
+    } else if (position > len) {
         insertAtEnd(HEAD, TAIL, data);
         return;
     } else {
