@@ -22,7 +22,7 @@ class Node {
 
 void print(Node* &HEAD) {
     if(HEAD == nullptr) {
-        cout<<"list is empty"<<endl;~
+        cout<<"list is empty"<<endl;
         return;
     }
 
@@ -34,10 +34,32 @@ void print(Node* &HEAD) {
     cout<<endl;
 }
 
+void insertAtEnd(Node* &HEAD, Node* &TAIL, int data) {
+    Node* newNode = new Node(data);
+    if(HEAD == nullptr) {
+        HEAD = newNode;
+        TAIL = newNode;
+        return;
+    }
+
+    TAIL->next = newNode;
+    newNode->prev = TAIL;
+    TAIL = newNode;
+}
+
 
 int main() {
 
+    Node* head = nullptr;
+    Node* tail = nullptr;
 
+    insertAtEnd(head, tail, 10);
+    insertAtEnd(head, tail, 20);
+
+    print(head);
+
+    cout<<endl<<"head->"<<head->data<<endl;
+    cout<<"tail->"<<tail->data<<endl;
 
 return 0;
 }
