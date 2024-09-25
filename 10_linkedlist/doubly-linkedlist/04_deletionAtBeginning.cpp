@@ -104,8 +104,26 @@ void insertAtPosition(Node* &HEAD, Node* &TAIL, int data, int position) {
     }
 }
 
-void deleteAtBeginning() {
+void deleteAtBeginning(Node* &HEAD, Node* &TAIL) {
+    if(HEAD == nullptr) {
+        cout<<"list is empty"<<endl;
+        return;
+    }
 
+    // handling special case of one node.
+    if(listLength(HEAD) == 1) {
+        Node* temp = HEAD;
+        HEAD = nullptr;
+        TAIL = nullptr;
+        delete temp;
+        return;
+    }
+
+    Node* temp = HEAD;
+    HEAD = temp->next;
+    temp->prev = nullptr;
+    temp->next = nullptr;
+    delete temp; 
     
 }
 
@@ -114,15 +132,17 @@ int main() {
     Node* head = nullptr;
     Node* tail = nullptr;
 
-    insertAtEnd(head, tail, 10);
-    insertAtEnd(head, tail, 20);
-    insertAtPosition(head, tail, 21, 1);
-    insertAtPosition(head, tail, 30, 3);
+    // insertAtEnd(head, tail, 10);
+    // insertAtEnd(head, tail, 20);
+    // insertAtPosition(head, tail, 21, 1);
+    // insertAtPosition(head, tail, 30, 3);
     insertAtPosition(head, tail, 31, 4);
 
     print(head);
 
-    
+    deleteAtBeginning(head,tail);
 
+    print(head);    
+    
 return 0;
 }

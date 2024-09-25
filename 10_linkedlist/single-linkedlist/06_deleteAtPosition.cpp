@@ -1,8 +1,6 @@
 #include<iostream>
 using namespace std;
 
-
-
 class Node {
     public:
         int data;
@@ -103,7 +101,7 @@ void insertAtPosition(Node* &HEAD, Node* &TAIL, int data, int position) {
 
 }
 
-void deleteAtBeginning(Node* &HEAD) {
+void deleteAtBeginning(Node* &HEAD, Node* &TAIL) {
     if(HEAD == nullptr)  {
         cout<<"List is empty"<<endl;
         return;
@@ -158,7 +156,7 @@ void deleteAtPosition(Node* &HEAD, Node* &TAIL, int position) {
 
     int len = listLength(HEAD);
     if(position == 1) {
-        deleteAtBeginning(HEAD);
+        deleteAtBeginning(HEAD, TAIL);
     } else if(position == len) {
         deleteAtEnd(HEAD, TAIL);
     } else {
