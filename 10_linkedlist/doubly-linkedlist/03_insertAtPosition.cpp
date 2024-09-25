@@ -89,13 +89,18 @@ void insertAtPosition(Node* &HEAD, Node* &TAIL, int data, int position) {
             T = T->next;
         }
 
-        Node* previousPointer = T;
-        Node* currentPointer = T->next;
+        newNode->next = T->next;
+        T->next->prev = newNode;
+        T->next = newNode;
+        newNode->prev = T;
 
-        previousPointer->next = newNode;
-        newNode->prev = previousPointer;
-        currentPointer->prev = newNode;
-        newNode->next = currentPointer;
+        // Node* previousPointer = T;
+        // Node* currentPointer = T->next;
+
+        // previousPointer->next = newNode;
+        // newNode->prev = previousPointer;
+        // currentPointer->prev = newNode;
+        // newNode->next = currentPointer;
     }
 }
 
