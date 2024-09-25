@@ -109,6 +109,15 @@ void deleteAtBeginning(Node* &HEAD) {
         return;
     }
 
+    // handling special case of one node..
+    if(listLength(HEAD) == 1) {
+        Node* temp = HEAD;
+        HEAD = nullptr;
+        TAIL = nullptr;
+        delete temp;
+        return;
+    }
+
     Node* oldHead = HEAD;
     HEAD = oldHead->next;
     oldHead->next = nullptr;
@@ -135,6 +144,15 @@ void deleteAtEnd(Node* &HEAD, Node* &TAIL) {
 void deleteAtPosition(Node* &HEAD, Node* &TAIL, int position) {
     if(HEAD == nullptr) {
         cout<<"list is empty"<<endl;
+        return;
+    }
+
+    // handling special case of one node..
+    if(listLength(HEAD) == 1) {
+        Node* temp = HEAD;
+        HEAD = nullptr;
+        TAIL = nullptr;
+        delete temp;
         return;
     }
 
