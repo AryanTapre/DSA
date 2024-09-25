@@ -158,9 +158,13 @@ void deletionAtPosition(Node* &HEAD, Node* &TAIL, int position) {
     int len = listLength(HEAD);
     if(position == 1) {
         deleteAtBeginning(HEAD, TAIL);
-    } else if(position >= len) {
+    } else if(position == len) {
         deletionAtEnd(HEAD, TAIL);
+    } else if(position > len) {
+        cout<<"Please, enter a valid position"<<endl;
+        return;
     } else {
+
         int i = 1;
         Node* previousPointer = HEAD;
 
@@ -177,6 +181,7 @@ void deletionAtPosition(Node* &HEAD, Node* &TAIL, int position) {
         delete previousPointer;
         delete currentPointer;
     }
+    
 }
 
 int main() {
@@ -191,11 +196,7 @@ int main() {
     insertAtPosition(head, tail, 31, 4);
     
     print(head);
-
-    deletionAtPosition(head, tail, 1);
-    
-
-
+    deletionAtPosition(head, tail, 5);
     print(head);
 
 
