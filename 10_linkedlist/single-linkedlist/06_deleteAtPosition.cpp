@@ -157,7 +157,7 @@ void deleteAtPosition(Node* &HEAD, Node* &TAIL, int position) {
     int len = listLength(HEAD);
     if(position == 1) {
         deleteAtBeginning(HEAD, TAIL);
-    } else if(position == len) {
+    } else if(position >= len) {
         deleteAtEnd(HEAD, TAIL);
     } else {
         int i = 1;
