@@ -103,6 +103,15 @@ void deleteAtEnd(Node* &HEAD, Node* &TAIL) {
         return;
     }
 
+    // handling special case of one node..
+    if(listLength(HEAD) == 1) {
+        Node* temp = HEAD;
+        HEAD = nullptr;
+        TAIL = nullptr;
+        delete temp;
+        return;
+    }
+
     Node* T = HEAD;
     while(T->next->next != nullptr) {
         T = T->next; 

@@ -104,6 +104,11 @@ void insertAtPosition(Node* &HEAD, Node* &TAIL, int data, int position) {
     }
 }
 
+void deleteAtBeginning() {
+
+    
+}
+
 int main() {
 
     Node* head = nullptr;
@@ -117,8 +122,7 @@ int main() {
 
     print(head);
 
-    cout<<endl<<"head->"<<head->data<<endl;
-    cout<<"tail->"<<tail->data<<endl;
+    
 
 return 0;
 }
