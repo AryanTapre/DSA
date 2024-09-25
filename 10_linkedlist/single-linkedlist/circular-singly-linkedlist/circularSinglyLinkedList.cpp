@@ -33,21 +33,38 @@ void print(Node* &LAST) {
     cout<<endl;
 }
 // INSERT IN EMPTY CIRCULAR LIST
-Node* insertInEmptyList(Node* &LAST, int data) {
-    if(LAST != nullptr) return LAST;
+void insertInEmptyList(Node* &LAST, int data) {
+    if(LAST != nullptr) {
+        return;
+    }
 
     Node* newNode = new Node(data);
     newNode->next = newNode;
     LAST = newNode;
-    return LAST;
 }
 
+void insertAtBeginning(Node* &LAST, int data) {
+    Node* newNode = new Node(data);
+    
+    if(LAST == nullptr) {
+        newNode->next = newNode;
+        LAST = newNode;
+        return;
+    }
+
+    newNode->next = LAST->next;
+    LAST->next = newNode;
+}
 
 int main() {
 
     Node* last = nullptr;
-    last = insertInEmptyList(last,10);
+    insertAtBeginning(last, 10);
+    insertAtBeginning(last, 20);
+    
+    
     print(last);
+
 
 return 0;
 }
