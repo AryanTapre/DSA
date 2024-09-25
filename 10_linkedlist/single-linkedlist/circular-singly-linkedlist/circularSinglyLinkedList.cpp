@@ -43,10 +43,11 @@ void insertInEmptyList(Node* &LAST, int data) {
     LAST = newNode;
 }
 
+// INSERT AT BEGINNING IN LIST
 void insertAtBeginning(Node* &LAST, int data) {
     Node* newNode = new Node(data);
     
-    if(LAST == nullptr) {
+    if(LAST == nullptr) { // if list is empty
         newNode->next = newNode;
         LAST = newNode;
         return;
@@ -56,6 +57,22 @@ void insertAtBeginning(Node* &LAST, int data) {
     LAST->next = newNode;
 }
 
+// INSERT AT END IN LIST
+void insertAtEnd(Node* &LAST, int data) {
+    Node* newNode = new Node(data);
+    
+    if(LAST == nullptr) {
+        newNode->next = newNode;
+        LAST = newNode;
+        return;
+    }
+
+    // list is non-empty
+    newNode->next = LAST->next;
+    LAST->next = newNode;
+    LAST = newNode;
+}
+
 int main() {
 
     Node* last = nullptr;
@@ -63,6 +80,11 @@ int main() {
     insertAtBeginning(last, 20);
     
     
+    print(last);
+
+    insertAtEnd(last, 100);
+    insertAtEnd(last, 1000);
+    insertAtBeginning(last, 0);
     print(last);
 
 
