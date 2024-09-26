@@ -14,6 +14,10 @@ class Node {
     Node(int data) {
         this->data = data;
         this->next = nullptr;
+        cout<<"node with value "<<this->data<<" created"<<endl;
+    }
+    ~Node() {
+        cout<<"node with value "<<this->data<<" deleted"<<endl;
     }
 };
 
@@ -123,16 +127,8 @@ void insertAtPosition(Node* &LAST, int data, int position) {
 int main() {
 
     Node* last = nullptr;
-    insertAtBeginning(last, 10);
-    insertAtBeginning(last, 20);
-    
-    
-    print(last);
+    insertAtPosition(last, 10, 1);
 
-    insertAtEnd(last, 100);
-    insertAtEnd(last, 1000);
-    insertAtBeginning(last, 0);
-    print(last);
 
 
 return 0;
