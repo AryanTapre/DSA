@@ -32,6 +32,19 @@ void print(Node* &LAST) {
 
     cout<<endl;
 }
+
+int listLength(Node* &LAST) {
+    int count = 1;
+    Node* temp = LAST->next;
+
+    do {
+        ++count;
+        temp = temp->next;
+    } while(temp != LAST->next);
+
+    return count;
+}
+
 // INSERT IN EMPTY CIRCULAR LIST
 void insertInEmptyList(Node* &LAST, int data) {
     if(LAST != nullptr) {
@@ -71,6 +84,20 @@ void insertAtEnd(Node* &LAST, int data) {
     newNode->next = LAST->next;
     LAST->next = newNode;
     LAST = newNode;
+}
+
+void insertAtPosition(Node* &LAST, int data, int position) {
+    if(LAST == nullptr) {
+        if(position == 1) {
+            insertAtBeginning(LAST, data);
+        } else {
+            cout<<"invalid posiiton"<<endl;
+            return;
+        }
+    } else {
+        
+
+    }
 }
 
 int main() {
