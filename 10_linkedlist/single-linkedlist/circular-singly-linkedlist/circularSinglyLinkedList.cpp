@@ -38,7 +38,7 @@ void print(Node* &LAST) {
 }
 
 int listLength(Node* &LAST) {
-    int count = 1;
+    int count = 0;
     Node* temp = LAST->next;
 
     do {
@@ -127,7 +127,18 @@ void insertAtPosition(Node* &LAST, int data, int position) {
 int main() {
 
     Node* last = nullptr;
+
     insertAtPosition(last, 10, 1);
+    insertAtPosition(last, 100, 1);
+    insertAtPosition(last, 99, 2);
+    print(last);
+    insertAtPosition(last, 101,3);
+    print(last);
+
+    insertAtPosition(last, 200, 6);
+    
+    
+
 
 
 
