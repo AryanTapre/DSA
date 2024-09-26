@@ -95,8 +95,28 @@ void insertAtPosition(Node* &LAST, int data, int position) {
             return;
         }
     } else {
+        int len = listLength(LAST);
         
+        if(position == 1) {
+            insertAtBeginning(LAST, data);
+        } else if(position - len == 1) {
+            insertAtEnd(LAST, data);
+        } else if(position - len > 1) {
+            cout<<"invalid position"<<endl;
+        } else {
+            int posCount = 1;
+            Node* previous = LAST->next;
+            
+            while(posCount < position-1) {
+                ++posCount;
+                previous = previous->next;
+            }
 
+            Node* current = previous->next;
+            Node* newNode = new Node(data);
+            previous->next = newNode;
+            newNode->next = current;
+        }
     }
 }
 
