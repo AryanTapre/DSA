@@ -179,8 +179,9 @@ void deleteAtPosition(Node* &LAST, int position) {
             return;
         }
 
-        delete HEAD;
+        delete LAST;
         LAST = nullptr;
+        
 
     } else {
 
@@ -213,7 +214,7 @@ void deleteAtPosition(Node* &LAST, int position) {
 
 int main() {
 
-    Node* last = nullptr;
+    Node* last = nullptr ;
 
     insertAtPosition(last, 10, 1);
     insertAtPosition(last, 20, 2);
@@ -232,7 +233,8 @@ int main() {
     print(last);    
 
     deleteAtPosition(last, 1);
-    cout<<"last:"<<last->next->data<<endl;
+    
+    
     
     print(last);
 
