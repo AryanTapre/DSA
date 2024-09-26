@@ -124,22 +124,117 @@ void insertAtPosition(Node* &LAST, int data, int position) {
     }
 }
 
+void deleteAtBeginning(Node* &LAST) {
+    if(LAST == nullptr) {
+        cout<<"list is empty"<<endl;
+        return;
+    }
+    Node* HEAD = LAST->next;
+
+    if(HEAD == LAST) { // Having only one node in the list.
+        delete HEAD;
+        LAST = nullptr;
+    } else {
+        // having multiple nodes in the list.
+        LAST->next = HEAD->next;
+        delete HEAD;
+    }
+}
+
+void deleteAtEnd(Node* &LAST) {
+    if(LAST == nullptr) {
+        cout<<"list is empty"<<endl;
+        return;
+    }
+
+    Node* HEAD = LAST->next;
+    if(HEAD == LAST) { // only single node exists
+        delete LAST;
+        LAST = nullptr;
+    }
+
+    Node* curr = HEAD;
+    while(curr->next != LAST) {
+        curr = curr->next;
+    }
+
+    curr->next = HEAD; // curr->next = LAST->next
+    delete LAST;
+    LAST = curr;
+}   
+
+void deleteAtPosition(Node* &LAST, int position) {
+    if(LAST == nullptr) {
+        cout<<"list is empty"<<endl;
+        return;
+    }
+
+    Node* HEAD = LAST->next;
+    if(HEAD == LAST) { // Handling Single node in the List..
+        cout<<"in single node section.."<<endl;
+        
+        if(position != 1) {
+            cout<<"runned 1"<<endl;
+            cout<<"invalid position"<<endl;
+            return;
+        }
+
+        delete HEAD;
+        LAST = nullptr;
+
+    } else {
+
+        int len = listLength(LAST);
+        if(position == 1) {
+            deleteAtBeginning(LAST);
+        } else if(position == len) {
+            deleteAtEnd(LAST);
+        } else if(position > len) {
+            cout<<"runned 2"<<endl;
+            cout<<"invalid position"<<endl;
+        } else {
+            
+            int positionCount = 1;
+            Node* previous = HEAD;
+            while(positionCount < position - 1) {
+                ++positionCount;
+                previous = previous->next;
+            }
+
+            Node* current = previous->next;
+            previous->next = current->next;
+            current->next = nullptr;
+            delete current;
+        }
+    }
+
+    
+}
+
 int main() {
 
     Node* last = nullptr;
 
     insertAtPosition(last, 10, 1);
-    insertAtPosition(last, 100, 1);
-    insertAtPosition(last, 99, 2);
-    print(last);
-    insertAtPosition(last, 101,3);
-    print(last);
-
-    insertAtPosition(last, 200, 6);
+    insertAtPosition(last, 20, 2);
+    insertAtPosition(last, 30, 3);
+    insertAtPosition(last, 40, 4);
     
     
 
+    print(last);
 
+    deleteAtPosition(last, 1);
+    deleteAtPosition(last, 3);
+    
+    deleteAtPosition(last, 2);
+
+    print(last);    
+
+    deleteAtPosition(last, 1);
+    cout<<"last:"<<last->next->data<<endl;
+    
+    print(last);
 
 
 return 0;
