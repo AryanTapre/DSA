@@ -67,15 +67,37 @@ void insertAtBeginning(Node* &LAST, int data) {
     newNode->prev = LAST; 
 }
 
+
+void insertAtEnd(Node* &LAST, int data) {
+    Node* newNode = new Node(data);
+    
+    if(LAST == nullptr) {
+        newNode->next = newNode;
+        newNode->prev = newNode;
+        LAST = newNode;
+        return;
+    }
+
+    Node* HEAD = LAST->next;
+    LAST->next = newNode;
+    newNode->prev = LAST;
+    
+    newNode->next = HEAD;
+    HEAD->prev = newNode;
+    LAST = newNode;
+
+}
+
 int main() {
     
     Node* last = nullptr;
+    // insertAtEnd(last, 20);
+    insertAtEnd(last, 30);
     insertAtBeginning(last, 10);
-    
 
     print(last);
 
     cout<<"head->"<<last->next->data<<" "<<"last->"<<last->data<<endl;
-    cout<<"size:"<<listLength(last)<<endl;
+    
 return 0;
 }
