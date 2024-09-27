@@ -88,16 +88,53 @@ void insertAtEnd(Node* &LAST, int data) {
 
 }
 
+void insertAtPosition(Node* &LAST, int data, int position) {
+    if(LAST == nullptr) {
+        if(position != 1) {
+            cout<<"invalid position"<<endl;
+            return;
+        }
+        insertAtBeginning(LAST, data);
+    } else {
+        int len = listLength(LAST);
+
+        if(position == 1) {
+            insertAtBeginning(LAST, data);
+        } else if(position-len == 1) {
+            insertAtEnd(LAST, data);
+        } else if(position-len > 1) {
+            cout<<"invalid position"<<endl;
+        } else {
+            int posCount = 1;
+            Node* current = LAST->next;
+
+            while(posCount < position) {
+                ++posCount;
+                current = current->next;
+            }
+
+            Node* previousNode = current->prev;
+            Node* newNode =  new Node(data);
+
+            current->prev = newNode;
+            newNode->next = current;
+            newNode->prev = previousNode;
+            previousNode->next  = newNode;
+        }
+    }
+}
+
 int main() {
     
     Node* last = nullptr;
-    // insertAtEnd(last, 20);
-    insertAtEnd(last, 30);
-    insertAtBeginning(last, 10);
+//     // insertAtEnd(last, 20);
+//     insertAtEnd(last, 30);
+//     insertAtBeginning(last, 10);
+//
+//     print(last);
+//
+//     cout<<"head->"<<last->next->data<<" "<<"last->"<<last->data<<endl;
 
-    print(last);
-
-    cout<<"head->"<<last->next->data<<" "<<"last->"<<last->data<<endl;
     
 return 0;
 }
