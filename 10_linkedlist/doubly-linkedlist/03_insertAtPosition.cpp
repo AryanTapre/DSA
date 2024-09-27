@@ -72,35 +72,47 @@ void insertAtEnd(Node* &HEAD, Node* &TAIL, int data) {
 }
 
 void insertAtPosition(Node* &HEAD, Node* &TAIL, int data, int position) {
-    int len = listLength(HEAD);
 
-    if(position == 1) {
-        insertAtBeginning(HEAD, TAIL, data);
-    } else if(position > len) {
-        insertAtEnd(HEAD, TAIL, data);
+    if(HEAD == nullptr && TAIL == nullptr) {
+        if(position == 1) {
+            insertAtBeginning(HEAD, TAIL,data);
+        } else {
+            cout<<"invalid position"<<endl;
+            
+        }
     } else {
 
-        Node* newNode = new Node(data);
-        int i = 1;
-        Node* T = HEAD;
+        int len = listLength(HEAD);
 
-        while(i < position-1) {
-            ++i;
-            T = T->next;
-        }
+        if(position == 1) {
+            insertAtBeginning(HEAD, TAIL, data);
+        } else if(position > len) {
+            insertAtEnd(HEAD, TAIL, data);
+        } else {
 
-        // newNode->next = T->next;
-        // T->next->prev = newNode;
-        // T->next = newNode;
-        // newNode->prev = T;
+            Node* newNode = new Node(data);
+            int i = 1;
+            Node* T = HEAD;
 
-        Node* previousPointer = T;
-        Node* currentPointer = T->next;
+            while(i < position-1) {
+                ++i;
+                T = T->next;
+            }
 
-        previousPointer->next = newNode;
-        newNode->prev = previousPointer;
-        currentPointer->prev = newNode;
-        newNode->next = currentPointer;
+            // newNode->next = T->next;
+            // T->next->prev = newNode;
+            // T->next = newNode;
+            // newNode->prev = T;
+
+            Node* previousPointer = T;
+            Node* currentPointer = T->next;
+
+            previousPointer->next = newNode;
+            newNode->prev = previousPointer;
+            currentPointer->prev = newNode;
+            newNode->next = currentPointer;
+
+        }    
     }
 }
 
