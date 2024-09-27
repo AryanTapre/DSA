@@ -17,7 +17,15 @@ class Node {
         this->data = data;
         this->next = nullptr;
         this->prev = nullptr;
+
+        cout<<"created node with value "<<this->data<<endl;
     }
+
+    ~Node() {
+        cout<<"deleted node with value "<<this->data<<endl;
+    }
+
+
 
 };
 
@@ -91,7 +99,7 @@ void insertAtEnd(Node* &LAST, int data) {
 void insertAtPosition(Node* &LAST, int data, int position) {
     if(LAST == nullptr) {
         if(position != 1) {
-            cout<<"invalid position"<<endl;
+            cout<<"invalid position: "<<position<<endl;
             return;
         }
         insertAtBeginning(LAST, data);
@@ -103,7 +111,7 @@ void insertAtPosition(Node* &LAST, int data, int position) {
         } else if(position-len == 1) {
             insertAtEnd(LAST, data);
         } else if(position-len > 1) {
-            cout<<"invalid position"<<endl;
+            cout<<"invalid position: "<<position<<endl;
         } else {
             int posCount = 1;
             Node* current = LAST->next;
@@ -134,7 +142,9 @@ int main() {
 //     print(last);
 //
 //     cout<<"head->"<<last->next->data<<" "<<"last->"<<last->data<<endl;
-
+    insertAtPosition(last, 10, 1);
+    insertAtPosition(last, 20, 2);
+    print(last);
     
 return 0;
 }
