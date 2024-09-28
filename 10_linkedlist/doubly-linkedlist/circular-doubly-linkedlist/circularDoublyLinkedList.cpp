@@ -131,7 +131,7 @@ void insertAtPosition(Node* &LAST, int data, int position) {
         }
     }
 }
-
+    
 int main() {
     
     Node* last = nullptr;
@@ -144,6 +144,9 @@ int main() {
 //     cout<<"head->"<<last->next->data<<" "<<"last->"<<last->data<<endl;
     insertAtPosition(last, 10, 1);
     insertAtPosition(last, 20, 2);
+    insertAtPosition(last, 30, 3);
+    insertAtPosition(last, 310, 2);
+
     print(last);
     
 return 0;
