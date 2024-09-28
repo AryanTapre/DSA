@@ -178,7 +178,6 @@ void deletionAtPosition(Node* &HEAD, Node* &TAIL, int position) {
         currentPointer->next->prev = previousPointer;
         currentPointer = nullptr;
         previousPointer = nullptr;
-        delete previousPointer;
         delete currentPointer;
     }
     

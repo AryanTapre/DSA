@@ -188,6 +188,43 @@ void deleteAtEnd(Node* &LAST) {
     LAST = newTail;
 }
 
+void deleteAtPosition(Node* &LAST, int position) {
+    if(position <= 0) {
+        cout<<"position 0 does not exists"<<endl;
+        return;
+    }
+
+    if(LAST == nullptr) {
+        cout<<"list is empty"<<endl;
+        return;
+    }
+
+    int len = listLength(LAST);
+
+    if(position == 1) {
+        deleteAtBeginning(LAST);
+    } else if(position == len) {
+        deleteAtEnd(LAST);
+    } else if(position > len) {
+        cout<<"invalid position"<<endl;
+    } else  {
+        int posCount = 1;
+        Node* previousPointer = LAST->next;
+
+        while(posCount < position-1) {
+            ++posCount;
+            previousPointer = previousPointer->next;
+        }
+
+        Node* currentPointer = previousPointer->next;
+        previousPointer->next = currentPointer->next;
+        currentPointer->next->prev = previousPointer;
+        currentPointer->next = nullptr;
+        currentPointer->prev = nullptr;
+        delete currentPointer;
+    }
+}
+
 int main() {
     
     Node* last = nullptr;
@@ -204,16 +241,12 @@ int main() {
     insertAtPosition(last, 310, 2);
 
     print(last);
-    deleteAtBeginning(last);
-    deleteAtBeginning(last);
 
-    print(last);
-
-    deleteAtEnd(last);
+    deleteAtPosition(last,4);
+    deleteAtPosition(last,3);
 
 
     print(last);
-
 
 
 return 0;
