@@ -159,6 +159,35 @@ void deleteAtBeginning(Node* &LAST) {
     delete oldHead;
 }
 
+void deleteAtEnd(Node* &LAST) {
+    if(LAST == nullptr) {
+        cout<<"list is empty"<<endl;
+        return;
+    }
+
+    if(LAST->next == LAST) { // handling single node case..
+        LAST->next = nullptr;
+        LAST->prev =  nullptr;
+        delete LAST;
+        LAST = nullptr;
+        return;
+    }
+
+    // handing multiple nodes case..
+    Node* HEAD = LAST->next;
+    Node* oldTail = LAST;
+    Node* newTail = LAST->prev;
+
+    newTail->next = HEAD;
+    HEAD->prev = newTail;
+
+    oldTail->next = nullptr;
+    oldTail->prev = nullptr;
+
+    delete oldTail;
+    LAST = newTail;
+}
+
 int main() {
     
     Node* last = nullptr;
@@ -178,8 +207,14 @@ int main() {
     deleteAtBeginning(last);
     deleteAtBeginning(last);
 
+    print(last);
+
+    deleteAtEnd(last);
 
 
     print(last);
+
+
+
 return 0;
 }

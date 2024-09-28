@@ -123,8 +123,7 @@ void deleteAtBeginning(Node* &HEAD, Node* &TAIL) {
     HEAD = temp->next;
     temp->prev = nullptr;
     temp->next = nullptr;
-    delete temp; 
-    
+    delete temp;
 }
 
 int main() {
