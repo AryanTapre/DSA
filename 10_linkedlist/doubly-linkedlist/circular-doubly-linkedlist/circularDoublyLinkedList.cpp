@@ -131,7 +131,34 @@ void insertAtPosition(Node* &LAST, int data, int position) {
         }
     }
 }
-    
+
+
+void deleteAtBeginning(Node* &LAST) {
+    if(LAST == nullptr) {
+        cout<<"list is empty"<<endl;
+        return;
+    }
+
+    if(LAST->next == LAST) { // HANDLING SPECIAL CASE FOR SINGLE NODE IN THE LIST
+        cout<<"single node"<<endl;
+
+        LAST->next = nullptr;
+        LAST->prev = nullptr;
+        delete LAST;
+        LAST = nullptr;
+        return;
+    }
+
+    Node* oldHead = LAST->next;
+    Node* newHead = oldHead->next;
+
+    LAST->next = newHead;
+    newHead->prev = LAST;
+    oldHead->next = nullptr;
+    oldHead->prev = nullptr;
+    delete oldHead;
+}
+
 int main() {
     
     Node* last = nullptr;
@@ -148,6 +175,11 @@ int main() {
     insertAtPosition(last, 310, 2);
 
     print(last);
-    
+    deleteAtBeginning(last);
+    deleteAtBeginning(last);
+
+
+
+    print(last);
 return 0;
 }
