@@ -33,13 +33,34 @@ void print(Node* HEAD) {
     cout<<endl;
 }
 
-Node* reverseInKGroups(Node* &HEAD, int k) {
+Node* reverseInKGroups(Node* HEAD, int k) {
     if(HEAD == nullptr) {
         cout<<"list is empty"<<endl;
         return nullptr;
     }
 
-    
+    if(k > length(HEAD)) {
+        return HEAD;
+    }    
+
+    Node* previous = nullptr;
+    Node* current = HEAD;
+    Node* forward = nullptr;
+    int count = 0;
+
+    while(count < k) {
+        forward = current->next;
+        current->next = previous;
+        previous = current;
+        current = forward;
+        ++count;
+    }
+
+    if(forward != nullptr) {
+        HEAD->next =  reverseInKGroups(forward, k);
+    }
+
+    return previous;
 }
 
 int main() {
@@ -60,8 +81,10 @@ int main() {
 
     print(first);
 
-    
-    
+    Node* head = reverseInKGroups(first, 3);
 
+    print(head);
+
+    
 return 0;
 }
