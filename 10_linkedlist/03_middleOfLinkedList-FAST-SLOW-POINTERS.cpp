@@ -23,7 +23,7 @@ void print(Node* HEAD) {
     cout<<endl;
 }
 
-Node* getMiddleNode(Node* &HEAD) {
+Node* getMiddleNode(Node* &HEAD) {  // TC: O(N)
     if(HEAD == nullptr) {
         cout<<"list is empty"<<endl;
         return nullptr;
