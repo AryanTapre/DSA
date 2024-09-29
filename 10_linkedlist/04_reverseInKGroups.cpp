@@ -1,4 +1,4 @@
-// TODO: find the middle node of Linked list
+// TODO: Reverse Linked list in K Groups
 
 #include<iostream>
 using namespace std;
@@ -14,6 +14,16 @@ class Node {
     }
 };
 
+int length(Node* &HEAD) {
+    Node* temp = HEAD;
+    int count = 0;
+    while(temp != nullptr) {
+        ++count;
+        temp = temp->next;
+    }
+    return count;
+}
+
 void print(Node* HEAD) {
     Node* temp = HEAD;
     while(temp != nullptr) {
@@ -23,29 +33,13 @@ void print(Node* HEAD) {
     cout<<endl;
 }
 
-Node* getMiddleNode(Node* &HEAD) {  // TC: O(N)
+Node* reverseInKGroups(Node* &HEAD, int k) {
     if(HEAD == nullptr) {
         cout<<"list is empty"<<endl;
         return nullptr;
     }
 
-    if(HEAD->next == nullptr) { // handling one node case   
-        return HEAD;
-    } 
-
-    Node* slow = HEAD;
-    Node* fast = HEAD;
-
-    // fast = HEAD->next; To change the middle node.
     
-    while(slow != nullptr && fast != nullptr) {
-        fast = fast->next;
-        if(fast != nullptr) {
-            fast = fast->next;
-            slow = slow->next;
-        }
-    }
-    return slow;
 }
 
 int main() {
@@ -66,8 +60,8 @@ int main() {
 
     print(first);
 
-    Node* middleNode = getMiddleNode(first);
-    cout<<"middle node is :"<<middleNode->data<<endl;
+    
+    
 
 return 0;
 }
