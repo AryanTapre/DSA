@@ -14,6 +14,18 @@ class Node {
     }
 };
 
+// USING SINGLE POINTER APPROACH
+bool isCircularUsingSinglyPointer(Node* &HEAD) {
+    Node* temp = HEAD->next;
+    while(true) {
+        if(temp == nullptr) return false;
+        if(temp == HEAD) return true;
+        temp = temp->next;
+    }
+    return false;
+}
+
+//TODO: Using Fast and slow pointers..
 bool isCircular(Node* &HEAD) {
     if(HEAD == nullptr) return false;
     Node* slow = HEAD;
@@ -28,7 +40,8 @@ bool isCircular(Node* &HEAD) {
             fast = fast->next;
             slow = slow->next;
 
-            if(fast == HEAD) return true;
+            if(fast == HEAD) return true; // check twise due the odd & even length of list.
+
             if(fast == nullptr) return false;
         }
     }
