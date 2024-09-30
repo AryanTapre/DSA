@@ -1,4 +1,4 @@
-// TODO: find the middle node of Linked list (FAST & SLOW POINTER CONCEPTS)
+// TODO: Detect A loop ()
 
 #include<iostream>
 using namespace std;
@@ -23,29 +23,27 @@ void print(Node* HEAD) {
     cout<<endl;
 }
 
-Node* getMiddleNode(Node* &HEAD) {  // TC: O(N)
+
+bool detectLoop(Node* &HEAD) {  
     if(HEAD == nullptr) {
-        cout<<"list is empty"<<endl;
-        return nullptr;
+        cout<<"List is empty"<<endl;
+        return false;
     }
 
-    if(HEAD->next == nullptr) { // handling one node case   
-        return HEAD;
-    } 
-
-    Node* slow = HEAD;
     Node* fast = HEAD;
+    Node* slow = HEAD;
 
-    // fast = HEAD->next; To change the middle node.
-    
-    while(slow != nullptr && fast != nullptr) {
+    while(fast != nullptr) {
         fast = fast->next;
-        if(fast != nullptr) {
+
+        if(fast!= nullptr && fast->next != nullptr) {
             fast = fast->next;
             slow = slow->next;
         }
+
+        if(fast == slow) return true;
     }
-    return slow;
+    return false;
 }
 
 int main() {
@@ -56,18 +54,28 @@ int main() {
     Node* forth = new Node(40); 
     Node* fifth = new Node(50); 
     Node* sixth = new Node(60); 
+    Node* seventy = new Node(70);
+    Node* eighty = new Node(80);
+
 
     first->next = second;
     second->next = third;
     third->next = forth;
     forth->next = fifth;
     fifth->next = sixth;
-    sixth->next = nullptr;
+    sixth->next = seventy;
+    seventy->next = eighty;
+    eighty->next = fifth;
 
-    print(first);
+    
 
-    Node* middleNode = getMiddleNode(first);
-    cout<<"middle node is :"<<middleNode->data<<endl;
+    if(detectLoop(first)) {
+        cout<<"loop detected"<<endl;
+    } else {
+        cout<<"Loop not detected"<<endl;
+    }
+
+
 
 return 0;
 }
