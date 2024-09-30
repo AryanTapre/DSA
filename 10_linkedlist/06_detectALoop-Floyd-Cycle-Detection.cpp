@@ -36,7 +36,7 @@ bool detectLoop(Node* &HEAD) {
     while(fast != nullptr) {
         fast = fast->next;
 
-        if(fast!= nullptr && fast->next != nullptr) {
+        if(fast!= nullptr) {
             fast = fast->next;
             slow = slow->next;
         }

@@ -36,7 +36,7 @@ bool isCircular(Node* &HEAD) {
         if(fast == HEAD) return true;
         if(fast == nullptr) return false;
 
-        if(fast->next != nullptr) {
+        if(fast != nullptr) {
             fast = fast->next;
             slow = slow->next;
 
@@ -59,7 +59,7 @@ int main() {
     first->next = second;
     second->next = third;
     third->next = fourth;
-    fourth->next = nullptr;
+    fourth->next = first;
 
     if(isCircular(first))   
         cout<<"list is circular"<<endl;
