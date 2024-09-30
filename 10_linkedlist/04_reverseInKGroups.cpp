@@ -47,7 +47,8 @@ Node* reverseInKGroups(Node* HEAD, int k) {
     Node* current = HEAD;
     Node* forward = nullptr;
     int count = 0;
-
+    
+    // Step A;
     while(count < k) {
         forward = current->next;
         current->next = previous;
@@ -56,10 +57,12 @@ Node* reverseInKGroups(Node* HEAD, int k) {
         ++count;
     }
 
+    // Step B:
     if(forward != nullptr) {
         HEAD->next =  reverseInKGroups(forward, k);
     }
 
+    //Step C;
     return previous;
 }
 
