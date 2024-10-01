@@ -26,6 +26,27 @@ void print(Node* &HEAD) {
     cout<<endl;
 }
 
+bool detectLoop(Node* &HEAD) {  
+    if(HEAD == nullptr) {
+        cout<<"List is empty"<<endl;
+        return false;
+    }
+
+    Node* fast = HEAD;
+    Node* slow = HEAD;
+
+    while(fast != nullptr) {
+        fast = fast->next;
+
+        if(fast!= nullptr) {
+            fast = fast->next;
+            slow = slow->next;
+        }
+
+        if(fast == slow) return true;
+    }
+    return false;
+}
 
 void removeLoop(Node* &HEAD) {
     if(HEAD == nullptr) {
@@ -93,8 +114,9 @@ int main() {
     seventh->next = seventh;  
 
     removeLoop(head);
-
     print(head);
+
+    cout<<"is loop removed : "<<detectLoop(head)<<endl;
 
 
 return 0;
