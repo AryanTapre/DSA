@@ -70,7 +70,7 @@ int main() {
     fifth->next = sixth;
     sixth->next = seventy;
     seventy->next = eighty;
-    eighty->next = first;
+    eighty->next = second;
 
 
     Node* point  = detectStartingPointLoop(first);
