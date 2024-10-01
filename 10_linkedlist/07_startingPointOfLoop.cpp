@@ -39,7 +39,6 @@ Node* detectStartingPointLoop(Node* &HEAD) {
     }
 
     if(fast == nullptr) {
-        cout<<"not loop detected"<<endl;
         return nullptr;
     }
 
@@ -71,10 +70,15 @@ int main() {
     fifth->next = sixth;
     sixth->next = seventy;
     seventy->next = eighty;
-    eighty->next = second;
+    eighty->next = first;
 
 
-    cout<<detectStartingPointLoop(first)->data<<endl;
+    Node* point  = detectStartingPointLoop(first);
+    if(point == nullptr) 
+        cout<<"loop not detected"<<endl;
+    else 
+        cout<<"staring point of loop is : "<<point->data<<endl;
+    
 
 return 0;
 }
