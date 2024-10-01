@@ -96,19 +96,19 @@ bool isPalindrome(Node* &HEAD) {
 
 int main() {
 
-    Node* head = new Node(10);
+    Node* head = new Node(20);
     Node* second = new Node(10);
-    Node* third = new Node(30);
-    Node* fourth = new Node(20);
-    Node* fifth = new Node(10);
+    // Node* third = new Node(30);
+    // Node* fourth = new Node(20);
+    // Node* fifth = new Node(10);
     
 
 
     head->next = second ;
-    second->next = third;
-    third->next = fourth;
-    fourth->next = fifth;
-    fifth->next = nullptr;
+    second->next = nullptr;
+    // third->next = fourth;
+    // fourth->next = fifth;
+    // fifth->next = nullptr;
 
 
     
