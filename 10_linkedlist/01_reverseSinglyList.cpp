@@ -126,9 +126,9 @@ int main() {
     Node* tail = nullptr;
 
     insertAtPosition(head, tail,10,1);
-    insertAtPosition(head, tail,20,2);
-    insertAtPosition(head, tail,30,3);
-    insertAtPosition(head, tail,40,4);
+    // insertAtPosition(head, tail,20,2);
+    // insertAtPosition(head, tail,30,3);
+    // insertAtPosition(head, tail,40,4);
 
     print(head);
 

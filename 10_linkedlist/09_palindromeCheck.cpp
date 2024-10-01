@@ -60,7 +60,7 @@ bool isPalindrome(Node* &HEAD) {
     }
 
     // logic for finding the middle node
-    Node* fast = HEAD;
+    Node* fast = HEAD->next;
     Node* slow = HEAD;
 
     while(fast != nullptr) {
@@ -97,7 +97,7 @@ bool isPalindrome(Node* &HEAD) {
 int main() {
 
     Node* head = new Node(10);
-    Node* second = new Node(20);
+    Node* second = new Node(10);
     Node* third = new Node(30);
     Node* fourth = new Node(20);
     Node* fifth = new Node(10);
@@ -105,7 +105,7 @@ int main() {
 
 
     head->next = second ;
-    second->next = nullptr;
+    second->next = third;
     third->next = fourth;
     fourth->next = fifth;
     fifth->next = nullptr;
@@ -117,10 +117,6 @@ int main() {
     } else {
         cout<<"no, it's not palindrome"<<endl;
     }
-    
-
-
-
 
 return 0;
 }
