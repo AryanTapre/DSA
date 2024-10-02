@@ -165,7 +165,6 @@ Node* sort012(Node* &HEAD) {
     delete zeroHead;
     delete oneHead;
     delete twoHead;
-    
     return HEAD;
 }
 
