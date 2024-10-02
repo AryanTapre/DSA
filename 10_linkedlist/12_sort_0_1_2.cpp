@@ -45,7 +45,7 @@ void sort012_coutingApproach(Node* &HEAD) {
 
     // overriding the nodes data with repsective counts of 0's, 1's and 2's..
     temp = HEAD;
-    while(temp != nullptr) {
+  
         while(zeroCount--) {
             temp->data = 0;
             temp = temp->next;
@@ -60,7 +60,7 @@ void sort012_coutingApproach(Node* &HEAD) {
             temp->data = 2;
             temp = temp->next;
         }
-    }
+    
 }
 
 void print(Node* &HEAD) {
