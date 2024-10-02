@@ -115,15 +115,12 @@ Node* sort012(Node* &HEAD) {
     while(temp != nullptr) {
         switch (temp->data) {
         case 0:
-            cout<<"zero"<<endl;
             insertAtEnd(zeroHead, zeroTail, temp->data);
             break;
         case 1:
-            cout<<"one"<<endl;
             insertAtEnd(oneHead, oneTail, temp->data);
             break;
         case 2:
-            cout<<"two"<<endl;
             insertAtEnd(twoHead, twoTail, temp->data);
             break;
         
@@ -131,7 +128,10 @@ Node* sort012(Node* &HEAD) {
             break;
         }
 
+        prev = temp;
         temp  = temp->next;
+        prev->next = nullptr;
+        delete prev;
     }
 
     if(zeroHead->next != nullptr) {
@@ -165,12 +165,7 @@ Node* sort012(Node* &HEAD) {
     delete zeroHead;
     delete oneHead;
     delete twoHead;
-
-    cout<<"onetail ->"<<oneTail->data<<endl;
-    cout<<"zerotail ->"<<zeroTail->data<<endl;
-    cout<<"twotail ->"<<twoTail->data<<endl;
     
-
     return HEAD;
 }
 
