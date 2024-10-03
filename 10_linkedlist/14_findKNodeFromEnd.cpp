@@ -23,7 +23,11 @@ int getNodeUtility(Node *temp, int position, int &data) {
 
     int countPosition = getNodeUtility(temp->next, position, data);
     ++countPosition;
-        
+    if(countPosition == position) {
+        data = temp->data;
+    }        
+
+    return countPosition;
 
 }
 
@@ -31,10 +35,29 @@ int getNode(Node *&HEAD, int position) {
     Node *temp = HEAD;
     int data = 0;
 
-    return getNodeUtility(temp, position, data);
+    int x = getNodeUtility(temp, position, data);
+    return data;
 }
 
 int main() {
+
+    Node* one = new Node(1);
+    Node* two = new Node(2);
+    Node* three = new Node(3);
+    Node* four = new Node(4);
+    Node* five = new Node(5);
+    Node* six = new Node(6);
+    
+
+    one->next = two;
+    two->next = three;
+    three->next = four;
+    four->next = five;
+    five->next = six;
+    six->next = nullptr;
+
+
+    cout<<getNode(one, 6)<<endl;
 
 return 0;
 }
