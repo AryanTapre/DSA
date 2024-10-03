@@ -16,8 +16,13 @@ class Node {
 
 };
 
-int getNode(Node *&HEAD, int position) {
+int getNodeUtility(Node *temp, int position, int data) {
 
+}
+
+int getNode(Node *&HEAD, int position) {
+    Node *temp = HEAD;
+    int data = 0;
 }
 
 int main() {
