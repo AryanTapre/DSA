@@ -33,7 +33,7 @@ int getNodeUtility(Node *temp, int position, int &data) {
 
 int getNode(Node *&HEAD, int position) {
     Node *temp = HEAD;
-    int data = -1;
+    int data = 0;
 
     int x = getNodeUtility(temp, position, data);
     return data;
