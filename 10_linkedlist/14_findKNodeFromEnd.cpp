@@ -16,6 +16,10 @@ class Node {
 
 };
 
+int getNode(Node *&HEAD, int position) {
+
+}
+
 int main() {
 
 return 0;
