@@ -12,6 +12,21 @@ class Node {
     Node(int _data): data(_data), next(nullptr) {}
 };
 
+void print(Node *&HEAD) {
+    if(HEAD == nullptr) {
+        cout<<"list is empty"<<endl;
+        return;
+    }
+
+    Node *temp = HEAD;
+    while(temp != nullptr ) {
+        cout<<temp->data<<" ";
+        temp = temp->next;
+    }
+    cout<<endl;
+
+}
+
 void insertAtEnd(Node *&HEAD, Node *&TAIL, Node *current) {
     if(TAIL == nullptr) {
         HEAD = current;
@@ -52,6 +67,8 @@ Node * mergeTwoList(Node *list1, Node *list2) {
         insertAtEnd(ansHead, ansTail, r);
         r=r->next;
     }
+
+    return ansHead;
 }
 
 int main() {
@@ -74,7 +91,8 @@ int main() {
 
 
     Node * mergeHead = mergeTwoList(list1Head, list2Head);
-    
+
+    print(mergeHead);
 
 
 return 0;
