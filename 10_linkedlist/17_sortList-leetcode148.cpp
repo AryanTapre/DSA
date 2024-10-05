@@ -9,28 +9,28 @@ class Node {
         int data;
         Node *next;
 
-        Node(int _data): data(_data),next(nullptr) {}
+        Node(int _data): data(_data), next(nullptr) {}
 };
 
-Node *getMid(Node *HEAD) {
-    Node *slow = HEAD;
-    Node *fast = HEAD->next;
+
+Node *getMid(Node *head) {
+    Node *slow = head;
+    Node *fast = head->next;
 
     while(fast != nullptr && fast->next != nullptr) {
-        fast = fast->next->next;
         slow = slow->next;
+        fast = fast->next->next;
     }
-
     return slow;
 }
-
 
 void insertAtEnd(Node *&head, Node *&tail, Node *current) {
     if(tail == nullptr) {
         head = current;
-        tail = current; 
+        tail = current;
+
     } else {
-        tail->next = current;
+        tail->next =  current;
         tail = current;
     }
 }
@@ -42,83 +42,82 @@ Node *merge(Node *head1, Node *head2) {
 
     Node *left = head1;
     Node *right = head2;
-    Node *mergeHead = nullptr, *mergeTail = nullptr;
+    Node *ansHead = nullptr;
+    Node *ansTail = nullptr;
 
-    while(left != nullptr && right != nullptr) {
+    while(left && right) {
         if(left->data < right->data) {
-            insertAtEnd(mergeHead, mergeTail, left);
+            insertAtEnd(ansHead, ansTail, left);
             left=left->next;
         } else {
-            insertAtEnd(mergeHead, mergeTail, right);
+            insertAtEnd(ansHead, ansTail, right);
             right=right->next;
-        }
+        } 
     }
 
-    if(left != nullptr) {
-        mergeTail->next = left;
+    if(left) {
+        ansTail->next = left;
+    }    
+
+    if(right) {
+        ansTail->next = right; 
     }
 
-    if(right != nullptr) {
-        mergeTail->next = right;
-    }
-    
-    return mergeHead;
+    return ansHead;
 }
 
-Node *sortList(Node *HEAD) {
-    if(HEAD == nullptr && HEAD->next == nullptr) {
-        return HEAD;
-    }   
+Node *sortList(Node *head) {
+    if(head == nullptr || head->next == nullptr) {
+        return head;
+    }
 
-    Node *mid = getMid(HEAD);
-    Node *left = HEAD;
+    Node *mid = getMid(head);
+    Node *left = head;
     Node *right = mid->next;
     mid->next = nullptr;
 
-    // left
-    left = sortList(left);
-    // right
-    right = sortList(right);
+    left = sortList(left); // left call
+    right = sortList(right); // right call
 
-    // merge
-    Node* ansHead = merge(left, right);
+    Node * ansHead = merge(left, right);  // merge call
     return ansHead;
-    
+
 }
 
-void print(Node *&HEAD) {
-    if(HEAD == nullptr) {
+void print(Node *head) {
+    if(head == nullptr) {
         cout<<"list is empty"<<endl;
         return;
     }
 
-    Node * temp = HEAD;
-    while(temp) {
+    Node *temp = head;
+    while(temp != nullptr) {
         cout<<temp->data<<" ";
         temp=temp->next;
-    }
+    }    
     cout<<endl;
-}
 
+}
 
 int main() {
 
-    Node *one = new Node(1);
-    Node *two = new Node(10);
-    Node *three = new Node(9);
-    Node *four = new Node(0);
-    Node *five = new Node(8);
+    Node *one = new Node(10);
+    Node *two = new Node(1);
+    Node *three = new Node(0);
+    Node *four = new Node(8);
+    Node *five = new Node(7);
+    Node *six = new Node(1);
 
     one->next = two;
     two->next = three;
     three->next = four;
     four->next = five;
-    five->next = nullptr;
+    five->next = six;
+    six->next = nullptr;
 
-    Node * newHead = sortList(one);
-  //  print(newHead);
-
-
+    Node * ans = sortList(one);
+    print(ans);
+    
 
 return 0;
 }
