@@ -58,14 +58,21 @@ Node * mergeTwoList(Node *list1, Node *list2) {
 
 
     // means l pointer is still pointing to valid node / list1 is greater than list2 in context of lengbt
-    while(l != nullptr) {
-        insertAtEnd(ansHead, ansTail, l);
-        l=l->next;
-    }
+    // while(l != nullptr) {
+    //     insertAtEnd(ansHead, ansTail, l);
+    //     l=l->next;
+    // }
 
-    while(r != nullptr) {
-        insertAtEnd(ansHead, ansTail, r);
-        r=r->next;
+    // while(r != nullptr) {
+    //     insertAtEnd(ansHead, ansTail, r);
+    //     r=r->next;
+    // }
+
+    if(l) {
+        ansTail->next = l;
+    }
+    if(r) {
+        ansTail->next = r;
     }
 
     return ansHead;
