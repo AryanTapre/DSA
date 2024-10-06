@@ -78,6 +78,25 @@ Node * mergeTwoList(Node *list1, Node *list2) {
     return ansHead;
 }
 
+Node *mergeRecursive(Node *list1, Node *list2) {
+    if(list1 == nullptr) {
+        return list2;
+    }
+    if(list2 == nullptr) {
+        return list1;
+    }
+
+    Node *ans = nullptr;
+    if(list1->data < list2->data) {
+        ans = list1;
+        list1->next = mergeRecursive(list1->next, list2);
+    } else {
+        ans = list2;
+        list2->next = mergeRecursive(list1, list2->next);   
+    }
+    return ans;
+}
+
 int main() {
 
     Node *list1Head = new Node(1);
@@ -97,9 +116,10 @@ int main() {
     list2Three->next = nullptr;    
 
 
-    Node * mergeHead = mergeTwoList(list1Head, list2Head);
+    //Node * mergeHead = mergeTwoList(list1Head, list2Head);
+    Node * ans = mergeRecursive(list1Head, list2Head);
 
-    print(mergeHead);
+    print(ans);
 
 
 return 0;
