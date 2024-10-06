@@ -105,15 +105,15 @@ int main() {
 
     Node *list2Head = new Node(1);
     Node *list2Two = new Node(3);
-    Node *list2Three = new Node(4);
+    
 
     list1Head->next = list1Two;
     list1Two->next = list1Three;
     list1Three->next = nullptr;
 
     list2Head->next = list2Two;
-    list2Two->next = list2Three;
-    list2Three->next = nullptr;    
+    list2Two->next = nullptr;
+        
 
 
     //Node * mergeHead = mergeTwoList(list1Head, list2Head);
