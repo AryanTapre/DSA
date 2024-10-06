@@ -34,7 +34,7 @@ Node* getMiddleNode(Node* &HEAD) {  // TC: O(N)
     } 
 
     Node* slow = HEAD;
-    Node* fast = HEAD;
+    Node* fast = HEAD->next;
 
     // fast = HEAD->next; To change the middle node.
     
