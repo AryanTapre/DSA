@@ -54,9 +54,9 @@ void print(Node *head) {
             return head;
         }
         
-         linkdelete(nthNode,n,m); 
-         return head;
-      
+        linkdelete(nthNode,n,m); 
+        return head;
+    
     }
 
 int main() {
