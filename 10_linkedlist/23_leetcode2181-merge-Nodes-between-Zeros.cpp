@@ -39,9 +39,32 @@ Node *mergeNodes(Node *head) {
 
 } 
 
+void print(Node *head) {
+    if(!head) {
+        cout<<"list is empty"<<endl;
+        return;
+    }
+
+    Node *temp  = head;
+    while(temp != 0) {
+        cout<<temp->data<<" "<<endl;
+        temp=temp->next;
+    }
+    cout<<endl;
+}
+
 int main() {
 
-    Node *
+    Node *head = new Node(0);
+    Node *one = new Node(1);
+    Node *two = new Node(0);
+
+    head->next = one;
+    one->next = two;
+    two->next = nullptr;
+
+    Node *ans = mergeNodes(head);
+    print(ans);
 
 return 0;
 }
