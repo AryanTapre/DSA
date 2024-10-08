@@ -14,7 +14,7 @@ class Node {
 };
 
 
-
+// TC: O(N)
 vector<int> nodesBetweenCriticalPoints(Node *head) {
     vector<int> ans = {-1, -1};
 
@@ -28,7 +28,7 @@ vector<int> nodesBetweenCriticalPoints(Node *head) {
     int lastCP = -1;
     int miniDistance = INT_MAX;
     int index = 1;
-    while(nxt != nullptr) {
+    while(nxt != nullptr) { 
             // checking for local  minima / maxima
         bool cp = ((current->data < previous->data && current->data < nxt->data) || 
                     (current->data > previous->data && current->data > nxt->data)) ? true: false;
