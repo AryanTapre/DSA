@@ -28,7 +28,7 @@ void print(Node *head) {
 }
 
 
- Node* linkdelete(Node* head, int n, int m) {
+Node* linkdelete(Node* head, int n, int m) {
         if(head == nullptr) return nullptr;
         
         Node *temp = head;
