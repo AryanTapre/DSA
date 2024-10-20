@@ -19,6 +19,10 @@ int getMiddleElementHelper(stack<int> &stack, int &totalSize) {
 }
 
 void getMiddleElement(stack<int> &stack) {
+    if(stack.empty()) {
+        cout<<"stack can't be empty!"<<endl;
+        return;
+    }
     int totalSize = stack.size() / 2;
     cout<<getMiddleElementHelper(stack, totalSize)<<endl;
 }
