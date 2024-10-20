@@ -20,7 +20,7 @@ class NStacks {
         }
 
         void pushOnStack1(int data) {
-            if(this->top1+1 == this->top2) {
+            if(this->top1+1 == this->top2) {  // top2 - top1
                 cout<<"overflow! stack 1"<<endl;
                 return;
             }
@@ -28,7 +28,7 @@ class NStacks {
         }
 
         void pushOnStack2(int data) {
-            if(this->top2-1 == this->top1) {
+            if(this->top2-1 == this->top1) {  // top2 - top1
                 cout<<"overflowed stack 2"<<endl;
                 return;
             }
