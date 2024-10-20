@@ -13,7 +13,7 @@ int getMiddleElementHelper(stack<int> &stack, int &totalSize) {
     stack.pop();
 
     int ele =  getMiddleElementHelper(stack, totalSize);
-    stack.push(temp);
+    stack.push(temp); // backtracking
 
     return ele;
 }
