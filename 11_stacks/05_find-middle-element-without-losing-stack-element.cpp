@@ -5,8 +5,6 @@
 using namespace std;
 
 
-
-
 int getMiddleElementHelper(stack<int> &stack, int &totalSize) {
     if(stack.size() == totalSize+1) return stack.top();
     
