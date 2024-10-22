@@ -28,6 +28,10 @@ void solve(stack<int> &st, int csize, int &initCapacity) {
 }
 
 void reverseStack(stack<int> &st) {
+    if(st.empty()) {
+        cout<<"stack can't be empty!"<<endl;
+        return;
+    }
     int csize  = 0;
     int initCapacity = st.size();
     solve(st, csize,initCapacity);
