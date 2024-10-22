@@ -5,6 +5,8 @@
 using namespace std;
 
 
+
+
 int getMiddleElementHelper(stack<int> &stack, int &totalSize) {
     if(stack.size() == totalSize+1) return stack.top();
     
@@ -26,6 +28,8 @@ void getMiddleElement(stack<int> &stack) {
     int totalSize = stack.size() / 2;
     cout<<getMiddleElementHelper(stack, totalSize)<<endl;
 }
+
+
 
 int main() {
 
