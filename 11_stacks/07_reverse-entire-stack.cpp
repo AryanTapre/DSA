@@ -21,10 +21,10 @@ void insertAtBottom(stack<int> &st, int &store, int &csize, int &initCapacity) {
 }
 
 void solve(stack<int> &st, int csize, int &initCapacity) {
-    if(csize == initCapacity-1) return;
+    if(csize == initCapacity - 1) return;
 
-    insertAtBottom(st,st.top(),csize, initCapacity);
-    solve(st,csize + 1, initCapacity);
+    insertAtBottom(st,st.top(),csize, initCapacity); 
+    solve(st,csize + 1, initCapacity);    // csize will get increment sequentially at solve call
 }
 
 void reverseStack(stack<int> &st) {
@@ -32,7 +32,7 @@ void reverseStack(stack<int> &st) {
         cout<<"stack can't be empty!"<<endl;
         return;
     }
-    int csize  = 0;
+    int csize  = 0; // current-stack-size
     int initCapacity = st.size();
     solve(st, csize,initCapacity);
 }
