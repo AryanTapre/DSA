@@ -4,7 +4,7 @@
 #include<stack>
 using namespace std;
 
-void insertInSortedStack(stack<int> &st, int &temp, int &initCap) {
+void insertInSortedStack(stack<int> &st, int &temp, int &initCap) {  // O(N)
     if(st.empty() || st.top() >= temp) {
         st.push(temp);
         return;
@@ -15,10 +15,10 @@ void insertInSortedStack(stack<int> &st, int &temp, int &initCap) {
 
     insertInSortedStack(st,temp,initCap);
         st.push(store);
-
 }
 
-void sortStack(stack<int> &st) {
+//Total Time Complexity => O(N * N)
+void sortStack(stack<int> &st) {  // O(N)     
     if(st.empty()) return;
 
     int temp = st.top();
