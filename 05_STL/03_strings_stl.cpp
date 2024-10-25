@@ -8,7 +8,7 @@ int main() {
     cout<<"fist char:"<<data.front()<<endl;
     cout<<"last char"<<data.back()<<endl;
     
-
+    
     data.clear();
     if(data.empty()) {
         cout<<"data is nill"<<endl;
