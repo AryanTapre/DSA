@@ -1,3 +1,5 @@
+// Find Next Smaller Element for each element
+// if not found then place -1
 
 #include<iostream>
 #include<stack>
