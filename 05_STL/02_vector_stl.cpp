@@ -9,6 +9,7 @@ int main() {
         cout<<x<<" ";
     }
 
+
     arr.insert(arr.begin(),100);
     arr.push_back(1000);
     arr.pop_back();
