@@ -79,7 +79,6 @@ bool findRedundant(string &s) {
 // }
 
 int main() {
-
     string str[] = {"a+((b*c))","(c*b)+a*(a+b)","(a*b)*((c+b)*(d+b))","((a*b)*(c+b))*((d)+b)"};
     for(auto i : str) {
         cout<<findRedundant(i)<<endl;
