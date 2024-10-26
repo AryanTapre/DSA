@@ -1,4 +1,6 @@
 #include<iostream>
+#include<limits.h>
+#include<algorithm>
 using namespace std;
 
 class abc {
@@ -24,6 +26,11 @@ int main() {
 
     abc::update(20);
     cout<<abc::data<<endl;
+
+
+
+    int ax = -1, bx = -2;
+    cout<<min(ax,INT_MAX)<<endl;
 
 return 0;
 }
