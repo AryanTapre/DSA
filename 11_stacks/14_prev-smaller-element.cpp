@@ -6,8 +6,6 @@
 #include<stack>
 using namespace std;
 
-
-
 vector<int> prevSmallerElement(vector<int> &input) {
     vector<int> ans;
     if(input.empty() || input.size() == 1) {
