@@ -65,8 +65,23 @@ vector<int> findNextSmaller(vector<int> &str) {
     return store;
 }
 
+// vector<int> nextSmallerElement(vector<int> &inp) {
+//         vector<int> ans(inp.size());
+//         stack<int> st;
+//         st.push(-1);
+
+//         for(int i=inp.size()-1; i>=0; i--) {
+//             while(inp[st.top()] > inp[i]) st.pop();
+//             int index = st.top();
+//             if(index == -1) index = inp.size();
+//             ans.at(i) = index;
+//             st.push(i);
+//         }
+//         return ans;
+//     }
+
 int main() {
-    vector<int> str = {10};
+    vector<int> str = {2,1,5,6,2,3};
     vector<int> ans = findNextSmaller(str);
 
     for(auto i : ans) {
