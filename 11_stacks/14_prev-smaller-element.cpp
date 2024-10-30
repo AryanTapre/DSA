@@ -1,6 +1,6 @@
 // Find Prev Smaller Element for each element
 // if not found then place -1
-
+// google it
 #include<iostream>
 #include<vector>
 #include<stack>
