@@ -1,9 +1,9 @@
 #include<vector>
 #include<iostream>
 using namespace std;
- 
+
 int main() {
- 
+
     // creating 4*3 vector
     vector<vector<int> > data;
 
@@ -24,7 +24,7 @@ int main() {
         cout<<endl;
     }
 
-    
+
 
     // creating 3*3 vector
     cout<<endl<<endl;
