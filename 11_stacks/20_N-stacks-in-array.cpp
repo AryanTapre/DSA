@@ -3,6 +3,29 @@
 #include<iostream>
 using namespace std;
 
+/*
+    PUSH - Algo
+index = free-spot
+if(index ==-1) return
+free-spot = next[index]
+next[index] = top[k-1]
+top[k-1] = index
+main[top[k-1]] = data
+
+*/
+
+/**         
+    POP - Algo
+index= top[k-1]
+if(index == -1) return
+data = main[top[k-1]]
+top[k-1] = next[index]
+next[index] = index+1
+free-spot = index
+ * 
+ */
+
+
 class NStacks {
     private:
         int n,k;
