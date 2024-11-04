@@ -34,7 +34,6 @@ int main() {
     }
 
 
-    string subString = data.substr(0,5);
     cout<<"sub-string captured:"<<subString<<endl;
 
     string str1 = "harshad";
