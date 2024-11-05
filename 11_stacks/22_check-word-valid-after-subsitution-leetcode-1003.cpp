@@ -6,9 +6,7 @@
 using namespace std;
 
 void fillStackWithX(stack<char> &st, string &x) {
-    for(auto i : x) {
-        st.push(i);
-    }
+    for(auto i : x) st.push(i);
 }
 
 //TODO: Without Using Stack D.S
