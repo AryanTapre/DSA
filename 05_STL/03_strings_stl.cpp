@@ -7,13 +7,19 @@ int main() {
     string data = "Aryan Tapre";
     cout<<"fist char:"<<data.front()<<endl;
     cout<<"last char"<<data.back()<<endl;
-    
+
+    data +="abc";
+    cout<<"data: =>"<<data<<endl;
+
     data.clear();
     if(data.empty()) {
         cout<<"data is nill"<<endl;
     }
     data = "Aryan Tapre";
-    
+    data.insert(0,"HARSHAD");
+    cout<<"hola:"<<data<<endl;
+
+
     data.insert(5,"X",1);
     cout<<"data inserted at postition 5:"<<data<<endl;
 
@@ -34,7 +40,7 @@ int main() {
     }
 
 
-    cout<<"sub-string captured:"<<subString<<endl;
+    //cout<<"sub-string captured:"<<subString<<endl;
 
     string str1 = "harshad";
     string str2 = "harshad";
