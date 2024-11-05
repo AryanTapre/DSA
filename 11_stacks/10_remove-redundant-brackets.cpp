@@ -18,7 +18,7 @@ bool isRedundantBracket(stack<char> &st) {
         st.pop(); //ddsd
     }
     st.pop();
-    // hello sir
+    
     if(flag) return false;
     return true;
 }
