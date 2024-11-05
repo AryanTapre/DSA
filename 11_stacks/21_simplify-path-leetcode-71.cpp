@@ -5,6 +5,7 @@
 #include<stack>
 using namespace std;
 
+
 void reverseStack(string &ans, stack<string> &st) {
     if(st.empty()) return;
 
