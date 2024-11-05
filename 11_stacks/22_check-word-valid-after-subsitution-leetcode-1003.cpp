@@ -11,6 +11,34 @@ void fillStackWithX(stack<char> &st, string &x) {
     }
 }
 
+//TODO: Without Using Stack D.S
+//bool isValid(string s) {
+            // string t = "abc";
+        // int i = 0;
+
+        // while(i < s.size()) {
+        //     if(i < t.size()) {
+                
+        //         if(t[i] != s[i]) {
+        //             if(s[i] != 'a') return false;
+        //             else {
+        //                 t.insert(i,"abc");
+        //             }
+        //         }
+
+        //     }else {
+        //         if(s[i] != 'a') return false;
+        //         else {
+        //             t+="abc";
+        //         }
+        //     }
+        //     ++i;
+        // }
+
+        // if(t.size() == s.size()) return true;
+        // else return false;
+//}
+
 bool isValid(string s) {
     stack<char> st;
     string x = "abc";
