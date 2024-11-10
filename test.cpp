@@ -3,6 +3,8 @@
 #include<iostream>
 using namespace std;
 
+// willing the mouse wheel
+
 void solve(vector<int> &a, int target, vector<int> output,vector<vector<int>> &ans, int currentSum, unordered_map<int,int> &map) {
     if(currentSum == target) {
         bool flag = false;
