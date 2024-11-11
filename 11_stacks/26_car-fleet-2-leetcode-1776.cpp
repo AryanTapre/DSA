@@ -25,6 +25,7 @@ vector<double> getCollisionTimes(vector<vector<int>> &cars) {
                 }
                 st.pop();
             }
+            // google.com
         }
 
         st.push(i);
