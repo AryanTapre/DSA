@@ -3,8 +3,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-
-
     double canCollide(int &i, vector<vector<int>> &cars) {
         double time = -1;
 
