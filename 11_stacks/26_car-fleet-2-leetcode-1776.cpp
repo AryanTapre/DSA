@@ -1,6 +1,6 @@
 // leetcode: 1776
 // Car Fleet 2
-//sdfiuu
+
 #include<iostream>
 #include<vector>
 #include<stack>
